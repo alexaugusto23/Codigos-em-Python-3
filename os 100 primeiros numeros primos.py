@@ -1,7 +1,4 @@
 # Sem lista
-n = 0
-divisores = 0
-
 for n in range(1,101):
     divisores=0
 
@@ -15,9 +12,6 @@ for n in range(1,101):
 print('\n')
 
 # Com lista
-
-n = 0
-divisores = 0
 primos=[]
 
 for n in range(1,101):
