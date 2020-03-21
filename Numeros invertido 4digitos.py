@@ -11,7 +11,18 @@ f=num%1000
 g=f%10
 aux_d=g
 
+
+vi=(int(aux_d)*1000)
+vi+=(int(aux_c)*100)
+vi+=(int(aux_b)*10)
+vi+=aux_a
+
+print(int(vi))
+
+
+'''
 print(int(aux_d),end='')
 print(int(aux_c),end='')
 print(int(aux_b),end='')
 print(int(aux_a),end='')
+'''
