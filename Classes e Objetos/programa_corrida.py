@@ -1,0 +1,25 @@
+import auto
+
+'''
+carro.ligar()
+carro.acelerar(50)
+print(carro.get_velocidade_atual())
+carro.acelerar(100)
+print(carro.get_velocidade_atual())
+carro.frear()
+carro.desligar()
+'''
+print("---- Nova corrida ----\n")
+carro = auto.CarroCorrida(350.0)
+carro.ligar()
+print(carro.get_velocidade_atual())
+carro.acelerar(10)
+print(carro.get_velocidade_atual())
+carro.acelerar(15)
+print(carro.get_velocidade_atual())
+carro.desacelerar(5)
+print(carro.get_velocidade_atual())
+carro.frear()
+print(carro.get_velocidade_atual())
+carro.desligar()
+print(carro.get_velocidade_atual())
