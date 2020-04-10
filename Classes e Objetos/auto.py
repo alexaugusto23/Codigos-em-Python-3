@@ -84,7 +84,7 @@ class CarroCorrida:
         if self.__ligado == True and self.__velocidade_atual != 0:
             self.__velocidade_atual = 0
             print("Carro parou com sucesso!")
-        elif self._ligado == True and self.__velocidade_atual == 0:
+        elif self.__ligado == True and self.__velocidade_atual == 0:
             print("Não precisa frear, carro já está parado")
         else:
             print("Carro está desligado")     
