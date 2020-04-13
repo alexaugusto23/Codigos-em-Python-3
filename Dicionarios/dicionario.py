@@ -27,14 +27,13 @@ for elem in dicio1:
 '''
 
 
-'''
 dicio2 = {14685:{'ac1':10,'ac2':5},14234:{'ac1':6,'ac2':8}}
 lista = [2,4,6,8,10]
 for elem in dicio2:
     print(elem)
     for elem2 in dicio2[elem]:
         print(dicio2[elem][elem2])
-'''
+
 
 
 
