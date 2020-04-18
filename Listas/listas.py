@@ -20,3 +20,40 @@ for cont in range (0,5):
 for val in lista2:
     print(val)
 
+andares = [-3,-2,-1,0,1,2,3,4,5,8,7,8,9,10]
+
+ 
+
+andar_max = max(andares)
+
+print(andar_max)
+
+ 
+
+andares = [-3,-2,-1,0,1,2,3,4,5,8,7,8,9,10]
+
+ 
+
+andar_min = min(andares)
+
+print(andar_min)
+
+ 
+
+andar_atual = 10
+
+ 
+
+for i in andares:
+
+  andar_max2 = i 
+
+print("teste max andar2",andar_max2)
+
+ 
+
+for i in andares[::-1]:
+
+  andar_min2 = i 
+
+print("teste min andar2",andar_min2)
