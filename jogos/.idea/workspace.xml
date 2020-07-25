@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="97a010a2-a350-4500-b4e9-798533b92be3" name="Default Changelist" comment="" />
+    <list default="true" id="97a010a2-a350-4500-b4e9-798533b92be3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adivinhacao.py" beforeDir="false" afterPath="$PROJECT_DIR$/adivinhacao.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +31,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RunManager">
     <configuration name="adivinhacao" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -98,34 +101,38 @@
     <option name="LAST_COMMIT_MESSAGE" value="inclusao de arquivos e nova pasta jogos" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="503" y="66" key="#adivinhacao" timestamp="1595710102519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="503" y="66" key="#adivinhacao/0.0.1536.824@0.0.1536.824" timestamp="1595710102519" />
     <state x="436" y="2" key="CommitChangelistDialog2" timestamp="1595708666327">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="436" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1595708666327" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1595708629498">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1595711119853">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595708629498" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1595708629498">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595711119853" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1595711119853">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595708629498" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1595708629497">
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595711119853" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1595711119852">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595708629497" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1595708629498">
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595711119852" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1595711119853">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595708629498" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595711119853" />
     <state x="571" y="126" key="RollbackChangesDialog" timestamp="1595708472178">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="571" y="126" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1595708472178" />
-    <state x="277" y="55" key="SettingsEditor" timestamp="1595708418864">
+    <state x="134" y="0" key="SettingsEditor" timestamp="1595709985873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595708418864" />
+    <state x="134" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595709985873" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1595708033215">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
