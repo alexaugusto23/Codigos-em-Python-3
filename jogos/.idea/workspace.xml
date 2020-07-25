@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="97a010a2-a350-4500-b4e9-798533b92be3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/adivinhacao.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Agenda_contatos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Classes e Objetos/Aula_21_04_20/classes_ex02_exercicio_02.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Classes e Objetos/Aula_21_04_20/classes_ex02_exercicio_02.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Classes e Objetos/Demais_Aulas/classe_carro.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Classes e Objetos/Demais_Aulas/classe_carro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Dicionario com calculo de media com funcao.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Dicionarios/Alice.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Dicionarios/dicionario.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Dicionarios/ex_dic_01.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Dicionarios/ex_dic_02.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Dicionarios/ex_dic_03.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Dicionarios/ex_dic_04.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Dicionarios/ex_dic_05.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Listas/listas.py" beforeDir="false" />
-    </list>
+    <list default="true" id="97a010a2-a350-4500-b4e9-798533b92be3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,13 +69,39 @@
       <option name="presentableId" value="Default" />
       <updated>1595708016215</updated>
     </task>
+    <task id="LOCAL-00001" summary="inclusao de arquivos e nova pasta jogos">
+      <created>1595708530244</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595708530244</updated>
+    </task>
+    <task id="LOCAL-00002" summary="inclusao de arquivos e nova pasta jogos">
+      <created>1595708624438</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595708624438</updated>
+    </task>
+    <task id="LOCAL-00003" summary="inclusao de arquivos e nova pasta jogos">
+      <created>1595708668445</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1595708668445</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="inclusao de arquivos e nova pasta jogos" />
+    <option name="LAST_COMMIT_MESSAGE" value="inclusao de arquivos e nova pasta jogos" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="436" y="2" key="CommitChangelistDialog2" timestamp="1595708623468">
+    <state x="436" y="2" key="CommitChangelistDialog2" timestamp="1595708666327">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="436" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1595708623468" />
+    <state x="436" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1595708666327" />
     <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1595708629498">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
