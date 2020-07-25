@@ -1,0 +1,1 @@
+print("Bem vindos ao jogo da Adivinhação!")

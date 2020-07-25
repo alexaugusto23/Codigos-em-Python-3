@@ -26,3 +26,5 @@ pro1 = classe_proprietario.Endereco("rua margarida", 0)
 
 carro1 = Carro("Alex1235")
 print(nome.get_proprietario())
+
+from math import sqrt
