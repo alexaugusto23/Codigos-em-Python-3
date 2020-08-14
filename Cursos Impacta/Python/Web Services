@@ -1,0 +1,19 @@
+https://viacep.com.br/
+
+mkdir projeto_ws - cria diretorio
+cd projeto_ws - acessa o diretorio
+
+criando uma maquina virtual
+virtualenv ws 
+
+ativando maquina virtual
+ws\Scripts\activate
+
+pip install requests - cria pacote de intalação
+import requests
+r = requests.get("http://www.impacta.com.br")
+print(r)
+response 200
+r.status_code
+r.headers
+r.headres.get("Server")
