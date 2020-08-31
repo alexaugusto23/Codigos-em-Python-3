@@ -1,3 +1,4 @@
+'''
 # Cria uma lista e substitui um elemento
 list_num = [2,5,9,1]
 list_num[2] = 3
@@ -34,10 +35,10 @@ for ind in range (len(lista)):
 print("\n-----------\n")
 
 # adiciona valores com um input
-valores2 = list()
+lista_01 = []
 for i in range (0,5):
-    valores2.append(int(input("digite um valor para adicionar na lista: ")))
-print(valores2)
+    lista_01.append(int(input("digite um valor para adicionar na lista: ")))
+print(lista_01)
 
 # lista está interligadas
 a1 = [2,3,4,7]
@@ -55,30 +56,42 @@ print(f"Lista A: {a}")
 print(f"Lista B: {b}") 
 print("\n-----------\n")
 
-# Exercicio 78
-lista_ex78 = []
-tamanho_lista = int(input("Digite o tamanho da lista: "))
-for qtd in range(0,tamanho_lista):
-    lista_ex78.append(int(input(f"Digite os valor para a posição {qtd}: ")))
-print("Maior elemento da lista: ",max(lista_ex78))
-print("Menor elemento da lista: ",min(lista_ex78))    
+teste = list()
+teste.append('Gustavo')
+teste.append(40)
+galera = list()
+galera.append(teste[:])
+teste[0] = 'Maria'
+teste[1] = 22
+galera.append(teste[:])
+print(galera)
 
-# Exercicio 79
-lista_ex79 = []
-decisao_user = "s"
-decisao_user.upper()
-while (decisao_user == "S"):
-    valor = (int(input("Digite um valor:")))
-    for i in lista_ex79:
-        if (valor != lista_ex79[i]):
-            lista_ex79.append(valor)
-    decisao_user = input("Deseja continuar: ")
-lista_ex79.sort()
+galera = [['João', 19], ['Ana',20],['Maria',45]]
+print(galera[0][1])
 
-# Exercicio 80
+for p in galera:
+    print(f" {p[0]} tem tantos anos de idade {p[1]}")
+'''
 
-# Exercicio 81
+galera = list()
+dado = list()
+totmai = 0
+totmen = 0
+for c in range (0, 3):
+    dado.append(str(input('Nome: ')))
+    dado.append(int(input('idade: ')))
+    galera.append(dado[:])
+    dado.clear()
 
-# Exercicio 82
+for p in galera:
+    if p[1] >= 21:
+        print(f"{p[0]} é maior de idade")
+        totmai += 1
+    else:
+        print(f"{p[0]} é menor de idade")
+        totmen += 1
 
-# Exercicio 83
+print(f"Temos {totmai} meiores e {totmen} menors de idade")
+
+print(galera)
+print(dado)
