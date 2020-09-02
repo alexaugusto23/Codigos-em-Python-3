@@ -1,3 +1,5 @@
+# Ordenação por seleção ou selection sort
+
 def ordenacao_selecao(lista):
     for i in range(len(lista)):
         indice_menor = i
@@ -12,5 +14,3 @@ numeros = [4,10,8,13,11]
 print(numeros)
 ordenacao_selecao(numeros)
 print(numeros)
-
-
