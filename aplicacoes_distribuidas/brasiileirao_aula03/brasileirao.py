@@ -176,8 +176,6 @@ ids de todos os jogos em que ele participou.
 
 
 def ids_de_jogos_de_um_time(dados, time_id):
-    pass
-
     dic_ids_de_jogost1 = {}
     dic_ids_de_jogost2 = {}
     lista_jogos = []
@@ -186,21 +184,20 @@ def ids_de_jogos_de_um_time(dados, time_id):
     for x in dados ['fases']['2700']['jogos']['id']:
         dic_ids_de_jogost1 [x] = dados ['fases']['2700']['jogos']['id'][x]['time1']
         dic_ids_de_jogost2 [x] = dados ['fases']['2700']['jogos']['id'][x]['time2']
-    print("\ndict t1\n",dic_ids_de_jogost1)
-    print("\ndict t2\n",dic_ids_de_jogost2)
+    #print("\ndict t1\n",dic_ids_de_jogost1)
+    #print("\ndict t2\n",dic_ids_de_jogost2)
 
     for chavet1 in dic_ids_de_jogost1:
         id_time = dic_ids_de_jogost1[chavet1]
 
     for chavet2 in dic_ids_de_jogost2:
         id_time = dic_ids_de_jogost2[chavet2]
-                
-        print(id_time)
+        #print(id_time)
         #print(type(id_time))
         if (time_id == id_time):
             lista_id_jogos.append(chavet1)
             lista_id_jogos.append(chavet2)
-    return len(lista_id_jogos)
+    return print(len(lista_id_jogos))
 
 '''
 dados = pega_dados()
