@@ -176,6 +176,8 @@ ids de todos os jogos em que ele participou.
 
 
 def ids_de_jogos_de_um_time(dados, time_id):
+    pass
+'''
     dic_ids_de_jogos = {}
     lista_jogos = []
     #cont = 0
@@ -188,7 +190,7 @@ def ids_de_jogos_de_um_time(dados, time_id):
             #print(valor)
             if print(time_id == dic_ids_de_jogos[chave][1]):
                 return
-
+'''
 
 '''
 dados = pega_dados()
@@ -279,7 +281,35 @@ Consulte a zona de rebaixamento do dicionário de dados, não deixe
 ela chumbada da função.
 '''
 def rebaixados(dados):
-    pass
+    cont = 0
+    dic_classificacao = {}
+    rebaixados = []
+    classificacao = dados ['fases']['2700']['classificacao']['grupo']
+    # print(classificacao)
+    faixa_rebaixamento = dados ['fases']['2700']['faixas-classificacao']['classifica3']['faixa']
+    print(faixa_rebaixamento)
+    
+    for chave in classificacao:
+        for valor in classificacao[chave]:
+            #print (valor)
+            cont += 1 
+            #print (cont)
+            dic_classificacao [valor] = cont
+    print("\n")
+    print(dic_classificacao,'\n')
+    for chave_i in dic_classificacao:
+        classificacao_time = dic_classificacao[chave_i]
+        print(classificacao_time)
+        if (classificacao_time >= 17 or classificacao_time <= 20):
+            rebaixados.append(classificacao_time)
+    print(rebaixados)
+                #return print(rebaixados)
+    #return '15-20'
+
+
+dados = pega_dados()
+rebaixados(dados)
+
 
 '''
 17. A próxima função recebe (além do dicionario de dados do brasileirão) uma id de time.
@@ -303,8 +333,8 @@ def classificacao_do_time_por_id(dados, time_id):
     # print(dic_classificacao,'\n')
     for chave in dic_classificacao:
         if (chave == time_id):
-            return print(dic_classificacao[chave])
-    print('não encontrado')
+            return dic_classificacao[chave]
+    return 'não encontrado'
 
 '''
 dados = pega_dados()
