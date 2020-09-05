@@ -288,12 +288,25 @@ Se a id nao for válida, ela retorna a string 'não encontrado'.
 '''
 
 def classificacao_do_time_por_id(dados, time_id):
+    cont = 0
+    dic_classificacao = {}
+    classificacao = dados ['fases']['2700']['classificacao']['grupo']
+    #print(classificacao)
     
-    for i in dados ['equipes']:
-        print(i)
-    
-    #return print('não encontrado')
+    for chave in classificacao:
+        for valor in classificacao[chave]:
+            #print (valor)
+            cont += 1 
+            #print (cont)
+            dic_classificacao [valor] = cont
+    #print("\n")
+   # print(dic_classificacao,'\n')
 
-dados = pega_dados
-classificacao_do_time_por_id(dados, '695')
+    for chave in dic_classificacao:
+        if print(chave == time_id):
+            return print(dic_classificacao[chave])
+    return print('não encontrado')
+
+dados = pega_dados()
+print(classificacao_do_time_por_id(dados, '695'))
 
