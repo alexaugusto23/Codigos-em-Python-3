@@ -177,20 +177,30 @@ ids de todos os jogos em que ele participou.
 
 def ids_de_jogos_de_um_time(dados, time_id):
     pass
-'''
-    dic_ids_de_jogos = {}
+
+    dic_ids_de_jogost1 = {}
+    dic_ids_de_jogost2 = {}
     lista_jogos = []
+    lista_id_jogos = []
     #cont = 0
     for x in dados ['fases']['2700']['jogos']['id']:
-        dic_ids_de_jogos [x] = dados['fases']['2700']['jogos']['id'][x]['time1']
-    #print(dic_ids_de_jogos)
-    for chave in dic_ids_de_jogos:
-        #print(chave)
-        for valor in dic_ids_de_jogos[chave]:
-            #print(valor)
-            if print(time_id == dic_ids_de_jogos[chave][1]):
-                return
-'''
+        dic_ids_de_jogost1 [x] = dados ['fases']['2700']['jogos']['id'][x]['time1']
+        dic_ids_de_jogost2 [x] = dados ['fases']['2700']['jogos']['id'][x]['time2']
+    print("\ndict t1\n",dic_ids_de_jogost1)
+    print("\ndict t2\n",dic_ids_de_jogost2)
+
+    for chavet1 in dic_ids_de_jogost1:
+        id_time = dic_ids_de_jogost1[chavet1]
+
+    for chavet2 in dic_ids_de_jogost2:
+        id_time = dic_ids_de_jogost2[chavet2]
+                
+        print(id_time)
+        #print(type(id_time))
+        if (time_id == id_time):
+            lista_id_jogos.append(chavet1)
+            lista_id_jogos.append(chavet2)
+    return len(lista_id_jogos)
 
 '''
 dados = pega_dados()
@@ -284,10 +294,19 @@ def rebaixados(dados):
     cont = 0
     dic_classificacao = {}
     rebaixados = []
+    lista_faixa = []
+    lista_faixa_concatenada = []
     classificacao = dados ['fases']['2700']['classificacao']['grupo']
     # print(classificacao)
     faixa_rebaixamento = dados ['fases']['2700']['faixas-classificacao']['classifica3']['faixa']
-    print(faixa_rebaixamento)
+    for i in faixa_rebaixamento:
+        lista_faixa.append(i)
+    #print(lista_faixa)
+    lista_faixa_concatenada = lista_faixa[0]+lista_faixa[1],lista_faixa[3]+lista_faixa[4] 
+    #print(lista_faixa_concatenada)
+    #print(lista_faixa_concatenada[0])
+    #print(lista_faixa_concatenada[1])
+    #print(faixa_rebaixamento)
     
     for chave in classificacao:
         for valor in classificacao[chave]:
@@ -295,21 +314,19 @@ def rebaixados(dados):
             cont += 1 
             #print (cont)
             dic_classificacao [valor] = cont
-    print("\n")
-    print(dic_classificacao,'\n')
+    #print("\n")
+    #print(dic_classificacao,'\n')
     for chave_i in dic_classificacao:
         classificacao_time = dic_classificacao[chave_i]
-        print(classificacao_time)
-        if (classificacao_time >= 17 or classificacao_time <= 20):
-            rebaixados.append(classificacao_time)
-    print(rebaixados)
-                #return print(rebaixados)
-    #return '15-20'
+        #print(classificacao_time)
+        if (classificacao_time >= int(lista_faixa_concatenada[0]) and classificacao_time <= int(lista_faixa_concatenada[1])):
+            rebaixados.append(chave_i)
+    return print(rebaixados)
 
-
+'''
 dados = pega_dados()
 rebaixados(dados)
-
+'''
 
 '''
 17. A próxima função recebe (além do dicionario de dados do brasileirão) uma id de time.
