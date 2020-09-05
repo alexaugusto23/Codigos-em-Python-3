@@ -4,15 +4,7 @@ Alexsandro augusto Ignácio  RA 1901705
 Adriel Vicente da Conceição RA 1901842
 Ariane Santos Cavalcante    RA 1902296
 Micaella Borges Leal        RA 1902427
-
 '''
-
-import json
-
-def pega_dados():
-    with open('ano2018.json') as f:
-        dados = json.load(f)
-    return dados
     
 '''
 Nessa atividade, vamos usar dados do campeonato brasileiro 2018
@@ -25,6 +17,13 @@ pode abrir no firefox, para tentar entender melhor.
 Se quiser ver os dados dentro do python, pode chamar a função
 pega_dados.
 '''
+
+import json
+
+def pega_dados():
+    with open('ano2018.json') as f:
+        dados = json.load(f)
+    return dados
 
 '''
 1. Crie uma função datas_de_jogo, que procura nos dados do brasileirão
@@ -57,6 +56,7 @@ vai falhar.
 somente fazer os meus testes. Para isso, note que muitos números
 nesse arquivo estão representados não como números, mas como strings)
 '''
+
 def data_de_um_jogo(dados, id_jogo):
     for x in dados['fases']['2700']['jogos']['id']:
         if id_jogo == x:
@@ -88,14 +88,15 @@ def ids_dos_times_de_um_jogo(dados, id_jogo):
             t2 = dados['fases']['2700']['jogos']['id'][id_jogo]['time2']  
     return t1, t2
 
-
 '''
 4. A próxima função recebe a id_numerica de um time e deve retornar o seu 'nome-comum'.
 '''
+
 def nome_do_time(dados, id_time):
         for x in dados ['equipes']:
             if id_time == x:
                 return dados ['equipes'][id_time]['nome-comum']
+
 
 '''
 5. A próxima função "cruza" as duas anteriores. Recebe uma id de um jogo
@@ -119,17 +120,24 @@ Se o nome comum não existir, retorne 'não encontrado'.
 '''
 
 def id_do_time(dados, nome_time):
-    for x in dados ['fases']['2700']['jogos']['id']:
-        if id_jogo == x:
-            t1 = dados['fases']['2700']['jogos']['id'][id_jogo]['time1']
-            nome2 = dados ['equipes'][t2]['nome-comum']
-    pass
-
-dados = pega_dados()
-print(id_do_time(dados, 'Cruzeiro'))
-
+    dic_time_id = {}
+    for x in dados ['equipes']:
+        dic_time_id [dados ['equipes'][x]['nome-comum']] = x
+        #print(x)
+        #print(dados ['equipes'][x]['nome-comum'])
+    #print(dic_time_id)
+    for chave in dic_time_id:
+        if chave == nome_time:
+            return dic_time_id[chave]
+    return print('não encontrado')
 
 '''
+dados = pega_dados()
+id_do_time(dados, 'Cruzeiro')
+'''
+
+'''
+
 7. Agora, façamos uma busca "fuzzy". Queremos procurar por 'Fla'
 e achar o Flamengo. Ou por 'Paulo' e achar o São Paulo.
 
@@ -143,7 +151,16 @@ Sua resposta deve ser uma lista de ids de times que "batem"
 com a pesquisa (e pode ser vazia, se não achar ninguém).
 '''
 def busca_imprecisa_por_nome_de_time(dados, nome_time):
-    pass
+    dict_busca = {}
+    for x in dados ['equipes']:
+        print(dados['equipes'][x]['id'])
+        print(dados['equipes'][x]['nome'])
+        print(dados['equipes'][x]['nome-comum'])
+        print(dados['equipes'][x]['nome-slug'])
+        print(dados['equipes'][x]['sigla'])
+
+dados = pega_dados()
+busca_imprecisa_por_nome_de_time(dados, 'Paulo')
 
 '''
 8. Agora, a ideia é receber a id de um time e retornar as

@@ -1,7 +1,1 @@
-        #print('valor de x',x)
-        #print("\n")
-        #print('', dados ['equipes'])
-        #print("\n")
-        #print('', dados ['equipes'][x])
-        #print("\n")
-        #print('', dados )
+1
