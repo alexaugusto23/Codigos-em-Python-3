@@ -186,18 +186,17 @@ def ids_de_jogos_de_um_time(dados, time_id):
         dic_ids_de_jogost2 [x] = dados ['fases']['2700']['jogos']['id'][x]['time2']
     #print("\ndict t1\n",dic_ids_de_jogost1)
     #print("\ndict t2\n",dic_ids_de_jogost2)
-
     for chavet1 in dic_ids_de_jogost1:
-        id_time = dic_ids_de_jogost1[chavet1]
+        id_time = str(dic_ids_de_jogost1[chavet1])
 
     for chavet2 in dic_ids_de_jogost2:
-        id_time = dic_ids_de_jogost2[chavet2]
+        id_time = str(dic_ids_de_jogost2[chavet2])
         #print(id_time)
         #print(type(id_time))
         if (time_id == id_time):
             lista_id_jogos.append(chavet1)
             lista_id_jogos.append(chavet2)
-    return print(len(lista_id_jogos))
+    return lista_id_jogos
 
 '''
 dados = pega_dados()
