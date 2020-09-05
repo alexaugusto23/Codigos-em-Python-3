@@ -59,7 +59,7 @@ nesse arquivo estão representados não como números, mas como strings)
 
 def data_de_um_jogo(dados, id_jogo):
     for x in dados['fases']['2700']['jogos']['id']:
-        if id_jogo == x:
+        if (id_jogo == x):
             return dados['fases']['2700']['jogos']['id'][id_jogo]['data']
     return 'não encontrado'
 
@@ -83,7 +83,7 @@ def ids_dos_times_de_um_jogo(dados, id_jogo):
 
 def ids_dos_times_de_um_jogo(dados, id_jogo):
     for x in dados ['fases']['2700']['jogos']['id']:
-        if id_jogo == x:
+        if (id_jogo == x):
             t1 = dados['fases']['2700']['jogos']['id'][id_jogo]['time1']
             t2 = dados['fases']['2700']['jogos']['id'][id_jogo]['time2']  
     return t1, t2
@@ -94,7 +94,7 @@ def ids_dos_times_de_um_jogo(dados, id_jogo):
 
 def nome_do_time(dados, id_time):
         for x in dados ['equipes']:
-            if id_time == x:
+            if (id_time == x):
                 return dados ['equipes'][id_time]['nome-comum']
 
 
@@ -105,7 +105,7 @@ e retorna os "nome-comum" dos dois times.
 
 def nomes_dos_times_de_um_jogo(dados, id_jogo):
     for x in dados ['fases']['2700']['jogos']['id']:
-        if id_jogo == x:
+        if (id_jogo == x):
             t1 = dados['fases']['2700']['jogos']['id'][id_jogo]['time1']
             t2 = dados['fases']['2700']['jogos']['id'][id_jogo]['time2']
             nome1 = dados ['equipes'][t1]['nome-comum']
@@ -127,7 +127,7 @@ def id_do_time(dados, nome_time):
         #print(dados ['equipes'][x]['nome-comum'])
     #print(dic_time_id)
     for chave in dic_time_id:
-        if chave == nome_time:
+        if (chave == nome_time):
             return dic_time_id[chave]
     return print('não encontrado')
 
@@ -150,24 +150,50 @@ aparece dentro de "São Paulo").
 Sua resposta deve ser uma lista de ids de times que "batem"
 com a pesquisa (e pode ser vazia, se não achar ninguém).
 '''
+
+
 def busca_imprecisa_por_nome_de_time(dados, nome_time):
     dict_busca = {}
-    for x in dados ['equipes']:
-        print(dados['equipes'][x]['id'])
-        print(dados['equipes'][x]['nome'])
-        print(dados['equipes'][x]['nome-comum'])
-        print(dados['equipes'][x]['nome-slug'])
-        print(dados['equipes'][x]['sigla'])
+    lista_id = []
 
-dados = pega_dados()
-busca_imprecisa_por_nome_de_time(dados, 'Paulo')
+    for x in dados ['equipes']:
+        dict_busca [x] = dados['equipes'][x]['nome'], dados['equipes'][x]['nome-comum'],dados['equipes'][x]['nome-slug'], dados['equipes'][x]['sigla']
+    #print(dict_busca)
+    for chave in dict_busca:
+        #print(chave)
+        for palavra in dict_busca[chave]:
+            #print(palavra)
+            palavra.strip()
+            if (nome_time in palavra):
+                lista_id.append(chave)
+                return lista_id
+
 
 '''
 8. Agora, a ideia é receber a id de um time e retornar as
 ids de todos os jogos em que ele participou.
 '''
+
+
 def ids_de_jogos_de_um_time(dados, time_id):
-    pass
+    dic_ids_de_jogos = {}
+    lista_jogos = []
+    #cont = 0
+    for x in dados ['fases']['2700']['jogos']['id']:
+        dic_ids_de_jogos [x] = dados['fases']['2700']['jogos']['id'][x]['time1']
+    #print(dic_ids_de_jogos)
+    for chave in dic_ids_de_jogos:
+        #print(chave)
+        for valor in dic_ids_de_jogos[chave]:
+            #print(valor)
+            if print(time_id == dic_ids_de_jogos[chave][1]):
+                return
+
+
+'''
+dados = pega_dados()
+print(ids_de_jogos_de_um_time(dados, '695'))
+'''
 
 '''
 9. Usando as ids dos jogos em que um time participou, podemos descobrir
@@ -257,10 +283,17 @@ def rebaixados(dados):
 
 '''
 17. A próxima função recebe (além do dicionario de dados do brasileirão) uma id de time.
-
 Ela retorna a classificação desse time no campeonato.
-
 Se a id nao for válida, ela retorna a string 'não encontrado'.
 '''
+
 def classificacao_do_time_por_id(dados, time_id):
-    pass
+    
+    for i in dados ['equipes']:
+        print(i)
+    
+    #return print('não encontrado')
+
+dados = pega_dados
+classificacao_do_time_por_id(dados, '695')
+
