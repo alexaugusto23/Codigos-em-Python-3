@@ -11,10 +11,6 @@ class Ponto:
     def igual(self, p):
         return (self.x == p.x) and (self.y == p.y)
 
-    def distancia():
-        pass
-
-    def
 
 p1 = Ponto(0, 0)
 p2 = Ponto(0, 0)

@@ -9,16 +9,16 @@ B2 - Facil) Implemente o m etodo distancia() que recebe um ponto p
 pertencente a outro objeto do tipo Ponto e calcula a distância euclidiana
 entre dois pontos. (Dica: ver rodap ́e 1).
 
-B3 - F́acil) Implemente o m ́etodo transladar() que recebe dois parˆametros dx e
+B3 - F́acil) Implemente o método transladar() que recebe dois parâmetros dx e
 dy, correspondentes aos deslocamentos no eixo x e y respectivamente, e
 translada um objeto da classe Ponto.
 
-OBS: Dados dois pontos com coordenadas 
-(x1, y1) e (x2, y2), a 
-distância euclidiana d entre eles  ́e definida por:
-d = p raiz (x2 − x1) 2 + (y2 − y1) 2.
 '''
 
+# Supondo p1 = (0, 0) e p2 = (3, 5), a 
+# distância euclidiana deve ser: 5.830951894845301
+#Supondo p1 = (3, 2) e p2 = (-5, -8), a 
+# distancia euclidiana deve ser: 12.806248474865697
 
 class Ponto:
 
@@ -36,17 +36,16 @@ class Ponto:
     def distancia(self, p2):
         return (((p2.x - self.x) ** 2) + ((p2.y - self.y))  ** 2) **0.5
 
-# Supondo p1 = (0, 0) e p2 = (3, 5), a 
-# distância euclidiana deve ser: 5.830951894845301
-#Supondo p1 = (3, 2) e p2 = (-5, -8), a 
-# distancia euclidiana deve ser: 12.806248474865697
+    def transladar(self, dx, dy):
+        self.x += dx
+        self.y += dy
+        return self.x, self.y
 
-    def transladar(self):
-        pass
-
-p1 = Ponto(0,0)
+p1 = Ponto(1,9)
 p2 = Ponto(3,5)
 print(p1.distancia(p2))
+print(p1.transladar(p2.x,p2.y))
+print(p1.obter_coordenadas())
 
 p3 = Ponto(3,2)
 p4 = Ponto(-5,-8)

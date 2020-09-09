@@ -1,1 +1,1 @@
-p1 = (3, 2) e p2 = (-5, -8
+p1.obter_coordenadas()
