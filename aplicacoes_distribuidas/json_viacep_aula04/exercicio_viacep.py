@@ -2,7 +2,8 @@ import requests
 
 def procura_cep(cep):
     a = requests.get('https://viacep.com.br/ws/'+cep+'/json/')
-    #dir(a)
+    print (f'\nURL:{a.url}\nStatus:{a.status_code}\nRequest:{a.request}\n')   
+    #print(dir(a))
     dic = a.json()
     return dic
 
