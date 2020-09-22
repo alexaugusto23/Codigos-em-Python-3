@@ -1,10 +1,10 @@
 import requests
 
 def procura_cep(cep):
-    a = requests.get('https://viacep.com.br/ws/'+cep+'/json/')
-    print (f'\nURL:{a.url}\nStatus:{a.status_code}\nRequest:{a.request}\n')   
+    resposta = requests.get('https://viacep.com.br/ws/'+cep+'/json/')
+    print (f'\nURL:{resposta.url}\nStatus:{resposta.status_code}\nRequest:{resposta.request}\n')   
     #print(dir(a))
-    dic = a.json()
+    dic = resposta.json()
     return dic
 
 cep_input = str(input("Digite o cep: "))

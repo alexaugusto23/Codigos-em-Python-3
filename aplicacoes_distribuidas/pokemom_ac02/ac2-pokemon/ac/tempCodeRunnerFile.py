@@ -1,0 +1,1 @@
+"O pokémon não tem evolução"
