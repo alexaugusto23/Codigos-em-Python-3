@@ -133,7 +133,7 @@ def numero_do_pokemon(nome):
         raise Exception (f"{resposta.status_code}-{resposta.text}")
     return resposta.json()['id']
 
-#print(numero_do_pokemon('pichu'))
+#print(numero_do_pokemon('wobbuffet'))
 #print(numero_do_pokemon('pikachu'))
 
 """
@@ -180,13 +180,7 @@ def cor_do_pokemon(nome):
     color.lower()
     return dic_cor[color]
 
-    '''
-    for chave in dic_cor:
-        print (chave)
-    print("\n")
-    for valor in dic_cor:
-        print (dic_cor[valor])
-    '''
+
 #print(cor_do_pokemon('marill'))
 
 """
@@ -284,27 +278,52 @@ def evolucoes_proximas(nome):
     evol_list = []
     idi = numero_do_pokemon(nome)
     anterior = evolucao_anterior(nome)
-    #print(idi)
-    #print(anterior)
+
     resposta = api.get(f"{site_pokeapi}/api/v2/pokemon-species/{idi}/", timeout = limite)
     resposta_evolves_chain = resposta.json()['evolution_chain']['url']
     resposta_evolves_chain2 = api.get(f"{site_pokeapi}{resposta_evolves_chain[18:len(resposta_evolves_chain)]}", timeout = limite)
-    #print(resposta.url)
-    #print(resposta_evolves_chain)
-    
-    for i in range(len(resposta_evolves_chain2.json()['chain']['evolves_to'])):
+    tamanho = len(resposta_evolves_chain2.json()['chain']['evolves_to'])
+
+    for i in range(tamanho):
         evol_list.append(resposta_evolves_chain2.json()['chain']['evolves_to'][i]['species']['name'])
-    
     if nome in evol_list:
         evol_list.remove(nome)
-        evol_list.append(resposta_evolves_chain2.json()['chain']['evolves_to'][0]['evolves_to'][0]['species']['name'])
-        for i in range(len(resposta_evolves_chain2.json()['chain']['evolves_to'])):
-            evol_list.append(resposta_evolves_chain2.json()['chain']['evolves_to'][i]['species']['name'])
-    if anterior in evol_list:
+
+    elif anterior in evol_list:
         evol_list.remove(anterior)
-    return evol_list 
+    if len(evol_list) == 0:
+        for j in range(tamanho):
+            evol_list.append(resposta_evolves_chain2.json()['chain']['evolves_to'][j]['evolves_to'][j]['species']['name'])
+        if nome in evol_list:
+            evol_list.remove(nome)
+    return evol_list
     
-#print(evolucoes_proximas('poliwhirl')) #poliwhirl
+    '''
+        # Tratamento poliwhirl
+        for i in range(len(resposta_evolves_chain2.json()['chain']['evolves_to'])):
+            for j in range(len(resposta_evolves_chain2.json()['chain']['evolves_to'])+1):
+                evol_list.append(resposta_evolves_chain2.json()['chain']['evolves_to'][i]['evolves_to'][j]['species']['name'])
+                
+
+            # Tratamento eevee e tyrogue
+            for i in range(len(resposta_evolves_chain2.json()['chain']['evolves_to'])):
+                evol_list.append(resposta_evolves_chain2.json()['chain']['evolves_to'][i]['species']['name'])
+                return evol_list
+    '''
+
+
+#print(evolucoes_proximas('charmeleon')) 
+#wobbuffet  --> []
+#charizard --> []
+#poliwhirl --> poliwrath", "politoed * 
+#poliwag --> poliwhirl
+#charmander --> charmeleon 
+#charmeleon --> charizard
+#torchic --> combusken
+#tyrogue --> "hitmonlee", "hitmonchan", "hitmontop"
+#eevee -->  "vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"
+#nincada --> "ninjask", "shedinja"
+
 
 """
 8. A medida que ganham pontos de experiência, os pokémons sobem de nível.
@@ -320,29 +339,27 @@ Observações:
 """
 def nivel_do_pokemon(nome, experiencia):
     if experiencia < 0:
-        raise Exception("Valor Negativo")
+        raise ValueError()
     idi = numero_do_pokemon(nome)
     dic_exp = []
-    #print(idi)
+
     resposta = api.get(f"{site_pokeapi}/api/v2/pokemon-species/{idi}/", timeout = limite)
     resposta_growth_rate = resposta.json()['growth_rate']['url']
     resposta_growth_rate2 = api.get(f"{site_pokeapi}{resposta_growth_rate[18:len(resposta_growth_rate)]}", timeout = limite)
-    #print(resposta.url)
-    #print(resposta_growth_rate)
+
     for i in range(len(resposta_growth_rate2.json()['levels'])):
         dic_exp.append(resposta_growth_rate2.json()['levels'][i]['experience'])
+
+
+    if (experiencia >= dic_exp[(len(dic_exp)-1)]):
+        return resposta_growth_rate2.json()['levels'][len(dic_exp)-1]['level']
     for i in range (len(dic_exp)):
-        #print(dic_exp[i])
-        if (experiencia >= dic_exp[i] and experiencia <= dic_exp[i+1]):
-            valor = i
+        if (experiencia < dic_exp[i]):
             return resposta_growth_rate2.json()['levels'][i]['level']
-        else:
-            if (experiencia > (len(dic_exp)-1)):
-                return resposta_growth_rate2.json()['levels'][(len(dic_exp)-1)]['level'] 
+        if (experiencia >= dic_exp[i] and experiencia < dic_exp[i+1]):
+            return resposta_growth_rate2.json()['levels'][i]['level']
 
-
-
-print(nivel_do_pokemon("vaporeon", 999))
+#print(nivel_do_pokemon("vaporeon", 99999999))
 
 
 """
@@ -356,6 +373,7 @@ class EspeciePokemon:
     evoluiu_de: str
     evolui_para: list
 
+
     """
     9. Com base nas funções acimas, implemente o método estático por_nome da classe EspeciePokemon.
     Esse método deve retornar uma instância de EspeciePokemon contendo o nome da espécie, a cor e as informações sobre a evolução.
@@ -363,14 +381,26 @@ class EspeciePokemon:
     @staticmethod
     @cached
     def por_nome(nome):
-        raise Exception("Não implementado.")
+        return EspeciePokemon(nome, cor_do_pokemon(nome), evolucao_anterior(nome), evolucoes_proximas(nome))
+
+#print(EspeciePokemon.por_nome('charizard'))
 
 """
 10. Dado um nome de treinador, cadastre-o na API de treinador.
 Retorne True se um treinador com esse nome foi criado e False em caso contrário (já existia).
 """
 def cadastrar_treinador(nome):
-    raise Exception("Não implementado.")
+    
+    cadastro = api.put(f"{site_treinador}/treinador/{nome}",json ={}, timeout = limite)
+    #print(cadastro.status_code)
+    if (nome not in cadastro.json()):
+        TreinadorNaoCadastradoException(Exception)
+    if (cadastro.status_code == 303):
+        return False
+    return True
+
+    
+#print(cadastrar_treinador("Alex"))
 
 """
 Vamos precisar desta classe logo abaixo.
@@ -438,7 +468,8 @@ class Pokemon:
     """
     @property
     def nivel(self):
-        raise Exception("Não implementado.")
+        return nivel_do_pokemon(self.__tipo, self.__experiencia)
+    
 
     """
     12. Imagine que você capturou dois pokémons do mesmo tipo. Para diferenciá-los, você dá nomes diferentes (apelidos) para eles.
@@ -484,3 +515,7 @@ def excluir_treinador(nome_treinador):
 """
 def excluir_pokemon(nome_treinador, apelido_pokemon):
     raise Exception("Não implementado.")
+
+# 11
+#poke = Pokemon("Homer Simpson", "Bart", "magikarp", 1250, Genero.MASCULINO)
+#print(poke.nivel)

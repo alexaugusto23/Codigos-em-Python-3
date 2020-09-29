@@ -279,6 +279,7 @@ class TestPokemon(unittest.TestCase):
     @teste("Bônus", 5, "pokeapi")
     def test_B_07c_ok_evolucoes_complexas(self):
         assert_equals_unordered_list(["ninjask", "shedinja"], evolucoes_proximas("nincada"), self)
+        assert_equals_unordered_list(["vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"], evolucoes_proximas("eevee"), self)
         assert_equals_unordered_list(["hitmonlee", "hitmonchan", "hitmontop"], evolucoes_proximas("tyrogue"), self)
         assert_equals_unordered_list(["poliwhirl"], evolucoes_proximas("poliwag"), self)
         assert_equals_unordered_list(["gloom"], evolucoes_proximas("oddish"), self)
