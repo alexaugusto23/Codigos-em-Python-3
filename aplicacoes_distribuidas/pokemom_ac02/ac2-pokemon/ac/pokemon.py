@@ -1,6 +1,15 @@
+import requests
 from requests import api
 from dataclasses import dataclass
 from enum import Enum, auto
+
+'''
+Grupo - MAAPSystems 
+Alexsandro augusto Ignácio  RA 1901705  
+Adriel Vicente da Conceição RA 1901842
+Ariane Santos Cavalcante    RA 1902296
+Micaella Borges Leal        RA 1902427
+'''
 
 """
 Instruções para TODOS os exercícios/funções abaixo:
@@ -277,6 +286,7 @@ Dicas:
 def evolucoes_proximas(nome):
     evol_list = []
     idi = numero_do_pokemon(nome)
+    #print(idi)
     anterior = evolucao_anterior(nome)
 
     resposta = api.get(f"{site_pokeapi}/api/v2/pokemon-species/{idi}/", timeout = limite)
@@ -297,22 +307,22 @@ def evolucoes_proximas(nome):
         if nome in evol_list:
             evol_list.remove(nome)
     return evol_list
-    
-    '''
+
+'''
         # Tratamento poliwhirl
-        for i in range(len(resposta_evolves_chain2.json()['chain']['evolves_to'])):
-            for j in range(len(resposta_evolves_chain2.json()['chain']['evolves_to'])+1):
-                evol_list.append(resposta_evolves_chain2.json()['chain']['evolves_to'][i]['evolves_to'][j]['species']['name'])
+        for i in range(len(resposta_url.json()['chain']['evolves_to'])):
+            for j in range(len(resposta_url.json()['chain']['evolves_to'])+1):
+                evol_list.append(resposta_url.json()['chain']['evolves_to'][i]['evolves_to'][j]['species']['name'])
                 
 
             # Tratamento eevee e tyrogue
-            for i in range(len(resposta_evolves_chain2.json()['chain']['evolves_to'])):
-                evol_list.append(resposta_evolves_chain2.json()['chain']['evolves_to'][i]['species']['name'])
+            for i in range(len(resposta_url.json()['chain']['evolves_to'])):
+                evol_list.append(resposta_url.json()['chain']['evolves_to'][i]['species']['name'])
                 return evol_list
     '''
 
 
-#print(evolucoes_proximas('charmeleon')) 
+#print(evolucoes_proximas('wobbuffet')) 
 #wobbuffet  --> []
 #charizard --> []
 #poliwhirl --> poliwrath", "politoed * 
@@ -478,7 +488,18 @@ class Pokemon:
     Certifique-se de que todos os dados são válidos.
     """
     def cadastrar(self):
-        raise Exception("Não implementado.")
+        validador = api.get(f"{site_pokeapi}/api/v2/pokemon/{self.tipo.nome}")
+        if validador.status_code == 404:
+            raise PokemonNaoExisteException
+        dados = {
+            "apelido" : self.apelido,
+            "experiencia" : self.experiencia,
+            "tipo" : self.tipo.nome,
+            "genero" : str(self.genero)
+
+        }
+
+        reposta = api.put(f"{site_treinador}/treinador/{self.nome_treinador}/{self.apelido}", json = dados, timeout = limite)
 
     """
     13. Dado um pokémon (o que é representado pelo self) acrescente-lhe a experiência ganha na API do treinador (e no própria instância também).
