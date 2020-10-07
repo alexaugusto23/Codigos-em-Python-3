@@ -1,84 +1,82 @@
 def compara_pilhas(pilha1, pilha2):
+
     pilha3 = []
     pilha4 = []
     resultado = 0
+    tam_p1 = len(pilha1)
+    tam_p2 = len(pilha2)
 
-    if is_empty(pilha1) and is_empty(pilha2):
+    if pilha1.is_empty() and pilha2.is_empty():
         return True
+    elif len(pilha1) != len(pilha2):
+        return False
     else: 
-        for item in range (len(pilha1)):
-            push(pilha3,pop(pilha1))
-            print("desempilha pilha 1")
-            print(f"Pilha 1: {pilha1}")
-            print(f"Pilha 3: {pilha3}")
-
-            print("-"*10)
-
-            push(pilha4,pop(pilha2))
-            print("desempilha pilha 2")
-            print(f"Pilha 2: {pilha2}")
-            print(f"Pilha 4: {pilha4}")
-
-                    
-            print("-"*10)
-            print("Compara pilhas")
-            if pilha3 == pilha4:
+        for i in range(tam_p1):
+            #print(pilha1.getval(),pilha2.getval())
+            item1 = pilha1.pop()
+            item2 = pilha2.pop()
+            if item1 == item2:
                 resultado += 1
-            
-            print("-"*10)
+            pilha3.append(item1)
+            pilha4.append(item2)
+        #print(pilha1.getval(),pilha2.getval())
+        #print(resultado)
+        #print(pilha3)
+        #print(pilha4)
 
-            push(pilha1,pop(pilha3))
-            print("Empilhando pilha 1")
-            print(f"Pilha 1: {pilha1}")
-            print(f"Pilha 3: {pilha3}")
+        for i in range(len(pilha3)):
+            item1 = pilha3.pop()
+            item2 = pilha4.pop()
 
-            print("-"*10)
+            pilha1.push(item1)
+            pilha2.push(item2)
+        #print("2 for")
+        #print(pilha1.getval(),pilha2.getval())
+        #print(pilha3)
+        #print(pilha4)
 
-            push(pilha2,pop(pilha4))
-            print("desempilha pilha 2")
-            print(f"Pilha 2: {pilha2}")
-            print(f"Pilha 4: {pilha4}")
-
-            print("-"*10)
-            print(f"o valor de resultado é: {resultado}")
-
-    if resultado == len(pilha1) and len(pilha2):
-        return True
-    else:
+        if resultado == tam_p1 and tam_p2:
+            return True
         return False
 
-# Função is_empty: testa se a pilha est́a vazia
-def is_empty(lista):
-    return len(lista) == 0
 
-# Função push: empilha um item
-def push(lista, item):
-    lista.append(item)
-
-# Função pop: desempilha um item
-def pop(lista):
-    if is_empty(lista):
-        raise Exception('Pilha vazia') # o comando raise gera um erro caso o usu ́ario tente desempilhar de uma Pilha vazia.
-    return lista.pop()
-
-# Função top: devolve o elemento no topo da pilha se ela não estiver vazia
-def top(lista):
-    if is_empty(lista):
-        raise Exception('Pilha vazia')
-    return lista[-1]
+class Pilha:
+    def __init__(self):
+        self.items = []
     
-empilha1 = []
-empilha2 = []
-empilha1.append(1)
-empilha1.append(2)
-empilha1.append(3)
+    def is_empty(self):
+        return len(self.items) == 0
+    def push(self, item):
+        self.items.append(item)
+    def pop(self):
+        if self.is_empty():
+            raise Exception('Pilha vazia')
+        return self.items.pop()
+    def top(self):
+        if self.is_empty():
+            raise Exception('Pilha vazia')
+        return self.items[-1]
 
-empilha2.append(1)
-empilha2.append(2)
-empilha2.append(3)
+    def __len__(self):
+        return len(self.items)
 
-print(empilha1,empilha2)
-print("-=-"*10)
+    def getval(self):
+        return self.items
+
+empilha1 = Pilha()
+empilha2 = Pilha()
+empilha1.push(1)
+empilha1.push(2)
+empilha1.push(3)
+
+empilha2.push(1)
+empilha2.push(2)
+empilha2.push(3)
+
+#print(empilha1,empilha2)
+#print("-=-"*10)
 print('chamando função compara pilhas')
 resultado = compara_pilhas(empilha1, empilha2)
 print(f"Imprimindo resutado da função {resultado}")
+
+

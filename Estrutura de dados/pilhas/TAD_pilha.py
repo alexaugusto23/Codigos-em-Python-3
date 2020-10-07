@@ -14,8 +14,7 @@ class Pilha:
         if self.is_empty():
             raise Exception('Pilha vazia')
         return self.items[-1]
-    # M ́etodo "especial" que permite utilizarmos a fun ̧c~ao len() pr ́e-definida na linguagem Python
-    # em uma inst^ancia da classe Pilha.
+
     def __len__(self):
         return len(self.items)
 
