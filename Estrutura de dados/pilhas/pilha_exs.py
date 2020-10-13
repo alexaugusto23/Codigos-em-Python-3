@@ -2,6 +2,7 @@
 Questão 1 (F ́acil): Escreva uma funcao que exiba todos os elementos de uma
 pilha.
 
+
 Questão 2 (F ́acil) : Escrever um programa que insere elementos em uma Pilha A.
 Apos isso, transfere todos os seus dados para outra pilha B.
 
@@ -76,6 +77,7 @@ E possível resolver esse problema utilizando pilhas.  ́
 Pede-se: implemente uma fun ̧c ̃ao para resolvˆe-lo.
 
 '''
+
 
 # EX 15
 class Pilha:
