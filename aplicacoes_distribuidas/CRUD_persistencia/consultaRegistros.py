@@ -7,12 +7,13 @@ connection = psycopg2.connect(
     dbname="DBImpacta"
 )
 cursor = connection.cursor()
-cursor.execute("SELECT id_cliente, nome, comentario FROM cliente_SORVERTUNES")
+cursor.execute("SELECT id_cliente, nome, comentario FROM cliente_sorvertunes")
 rows = cursor.fetchall()  # um resultado de uma intrução SELECT
 for row in rows:
     print("valores: ", row[0], row[1], row[2])
 cursor.close()
 connection.close()
+
 
 # -----------------------------
 '''

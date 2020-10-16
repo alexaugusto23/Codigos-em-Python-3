@@ -9,7 +9,7 @@ def inserir_cliente(nome, comentario):
             dbname = "DBImpacta"
         )
         cursor = connection.cursor()
-        sql = "INSERT INTO cliente_SORVERTUNES(nome, comentario) VALUES (%s, %s)"
+        sql = "INSERT INTO cliente_sorvertunes (nome, comentario) VALUES (%s, %s)"
         cursor.execute(sql, [nome, comentario])
         connection.commit()
         cursor.close()
@@ -21,3 +21,5 @@ def inserir_cliente(nome, comentario):
 
 inserir_cliente("Priscila", "Teste Priscila")
 inserir_cliente("Jose Carlos", "Teste de inserção")
+
+#connection.rollback(). Cancela operação

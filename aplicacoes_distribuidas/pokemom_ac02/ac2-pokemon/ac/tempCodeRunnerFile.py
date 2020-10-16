@@ -1,0 +1,1 @@
+Pokemon.cadastrar(poke)

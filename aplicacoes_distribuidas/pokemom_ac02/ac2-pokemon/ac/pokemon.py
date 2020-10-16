@@ -351,6 +351,7 @@ def nivel_do_pokemon(nome, experiencia):
     if experiencia < 0:
         raise ValueError()
     idi = numero_do_pokemon(nome)
+    #print(idi)
     dic_exp = []
 
     resposta = api.get(f"{site_pokeapi}/api/v2/pokemon-species/{idi}/", timeout = limite)
@@ -359,7 +360,6 @@ def nivel_do_pokemon(nome, experiencia):
 
     for i in range(len(resposta_growth_rate2.json()['levels'])):
         dic_exp.append(resposta_growth_rate2.json()['levels'][i]['experience'])
-
 
     if (experiencia >= dic_exp[(len(dic_exp)-1)]):
         return resposta_growth_rate2.json()['levels'][len(dic_exp)-1]['level']
@@ -478,8 +478,27 @@ class Pokemon:
     """
     @property
     def nivel(self):
-        return nivel_do_pokemon(self.__tipo, self.__experiencia)
-    
+        return nivel_do_pokemon(self.__tipo.nome, self.__experiencia)
+
+    '''
+    cadastrar_treinador("Alex")
+    poke = Pokemon("Alex", "A", "pichu", 2000, Genero.MASCULINO)
+    Pokemon.cadastrar(poke)
+    '''
+    '''
+    cadastrar_treinador("Alex")
+    pichu = EspeciePokemon.por_nome("pichu")
+    poke = Pokemon("Alex", "A", "pichu", 2000, Genero.MASCULINO)
+    poke.tipo.nome
+    poke.nome_treinador
+    Pokemon.cadastrar(poke)
+    #poke.nivel
+    #Pokemon.ganhar_experiencia(poke, 3000)
+    #Pokemon.localizar_pokemon("Jessie","A")
+    #dic = detalhar_treinador("Jessie")
+    #excluir_treinador("Jessie")
+    #excluir_pokemon("Jessie","A")
+    '''
 
     """
     12. Imagine que você capturou dois pokémons do mesmo tipo. Para diferenciá-los, você dá nomes diferentes (apelidos) para eles.
@@ -488,18 +507,19 @@ class Pokemon:
     Certifique-se de que todos os dados são válidos.
     """
     def cadastrar(self):
-        validador = api.get(f"{site_pokeapi}/api/v2/pokemon/{self.tipo.nome}")
+        validador = api.get(f"{site_pokeapi}/api/v2/pokemon/{self.tipo}/", timeout = limite)
         if validador.status_code == 404:
             raise PokemonNaoExisteException
-        dados = {
-            "apelido" : self.apelido,
-            "experiencia" : self.experiencia,
-            "tipo" : self.tipo.nome,
-            "genero" : str(self.genero)
+        dados = {"tipo" : self.tipo, "experiencia" : self.experiencia, "genero" : str(self.genero)}
+        resposta = api.put(f"{site_treinador}/treinador/{self.nome_treinador}/{self.apelido}",
+                          json = dados, timeout = limite)
+        if validador.status_code == 404:
+            raise TreinadorNaoCadastradoException()
+        if validador.status_code == 409:
+            raise PokemonJaCadastradoException()
+        if validador.status_code == 202:
+            raise Exception(f"{resposta.status_code} - {resposta.text}")
 
-        }
-
-        reposta = api.put(f"{site_treinador}/treinador/{self.nome_treinador}/{self.apelido}", json = dados, timeout = limite)
 
     """
     13. Dado um pokémon (o que é representado pelo self) acrescente-lhe a experiência ganha na API do treinador (e no própria instância também).
@@ -508,8 +528,18 @@ class Pokemon:
     - A experiêcia ganha não pode ser um número negativo. Lance um ValueError nesse caso.
     """
     def ganhar_experiencia(self, ganho):
-        raise Exception("Não implementado.")
-
+        if ganho <0:
+            raise ValueError()
+        resposta = api.post(f"{site_treinador}/treinador/{self.nome_treinador}/{self.apelido}/exp",
+                          json = {'experiencia': ganho}, timeout = limite)
+        if resposta.status_code == 404:
+            if resposta.text == "Treinador não existe.":
+                raise TreinadorNaoCadastradoException()
+                raise PokemonNaoCadastradoException()
+        if resposta.status_code != 204: 
+            raise Exception(f"{resposta.status_code} - {resposta.text}")
+        self.__experiencia += ganho
+        #Pokemon.ganhar_experiencia(poke, 222)
     """
     14. Dado um nome de treinador e um apelido de pokémon, localize esse pokémon na API do treinador.
         A API do treinador trará como resultado, a espécie do pokémon, a quantidade de experiência que ele tem e o seu gênero.
