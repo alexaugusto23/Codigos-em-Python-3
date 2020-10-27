@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com Jinja2</title>
+</head>
+<body>
+
+    <h1>Framework jinja2</h1>
+    {% if name != None %}
+        <h2>Hello, {{ name }} </h2>
+    {% else %}
+        <h2>Hello, Stranger </h2>
+    {% endif %}
+
+    {% for i in range (1,10)%}
+    <h1>{{i}}</h1>
+    {% endfor %}
+
+</body>
+</html>

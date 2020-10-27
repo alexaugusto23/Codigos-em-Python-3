@@ -4,5 +4,5 @@ def soma_numeros(n):
     else:
         return n + soma_numeros(n-1) # passo chave de recursão
 
-resultado = soma_numeros(5)
+resultado = soma_numeros(7)
 print(f"O somatorio é: {resultado}")
