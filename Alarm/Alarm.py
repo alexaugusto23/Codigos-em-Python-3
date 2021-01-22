@@ -17,7 +17,10 @@ def timer(message, minutes):
 
 if __name__ == "__main__":
     minutes = int(input("Digite o tempo do timer: "))
-    message = f"Alarme Concluído em {minutes} !"
+    text = ""
+    if minutes > 1: text = "minutos"
+    else: text = "minuto"
+    message = f"Alarme foi Concluído em {minutes} {text}!"
     
     timer(message, minutes)
     
