@@ -29,25 +29,45 @@ class Televisao():
 
     def trocar_canal(self):
         if (self.status == True):
-            valor = int(input("Digite o canal desejado: "))
-            if (type(valor) == int):
-                self.canal = valor
-            else:
-                valor = int(input("Digite novamente o volume desejado: "))
-                self.canal = valor
-            print(f"Canal trocado: {self.canal}")
+            try:
+                valor = int(input("Digite o canal desejado: "))
+                if (type(valor) == int):
+                    self.canal = valor
+                else:
+                    valor = int(input("Digite novamente o canal desejado: "))
+                    self.canal = valor
+                print(f"Canal trocado: {self.canal}")
+            except:
+                print("Atenção !!! Digite somente números!!!")
+                valor = int(input("Digite o canal desejado: "))
+                if (type(valor) == int):
+                    self.canal = valor
+                else:
+                    valor = int(input("Digite novamente o canal desejado: "))
+                    self.canal = valor
+                print(f"Canal trocado: {self.canal}")
         else:
             print(self.msg)
     
     def troca_volume(self):
         if (self.status == True):
-            valor = int(input("Digite o volume desejado: "))
-            if (type(valor) == int):
-                self.volume = valor
-            else:
-                valor = int(input("Digite novamente o volume desejado: "))
-                self.volume = valor
-            print(f"Volume trocado: {self.volume}")
+            try: 
+                valor = int(input("Digite o volume desejado: "))
+                if (type(valor) == int):
+                    self.volume = valor
+                else:
+                    valor = int(input("Digite novamente o volume desejado: "))
+                    self.volume = valor
+                print(f"Volume trocado: {self.volume}")
+            except:
+                print("Atenção !!! Digite somente números!!!")
+                valor = int(input("Digite o volume desejado: "))
+                if (type(valor) == int):
+                    self.volume = valor
+                else:
+                    valor = int(input("Digite novamente o volume desejado: "))
+                    self.volume = valor
+                print(f"Volume trocado: {self.volume}")
         else:
             print(self.msg)
 
@@ -108,9 +128,5 @@ class Televisao():
 
 tv = Televisao()
 tv.troca_status()
-tv.aumenta_canal()
-tv.aumenta_canal()
-tv.aumenta_canal()
-tv.diminui_canal()
 tv.trocar_canal()
-tv.troca_status()
+
