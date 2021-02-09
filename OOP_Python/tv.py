@@ -3,7 +3,7 @@ class Televisao():
         self.canal = 0
         self.volume = 0
         self.status =  False
-        self.msg = "Televisão desligada"
+        self.msg = "A televisão está desligada por isso não podemos executar a sua solicitação"
 
     def troca_status(self):
         print("A Televisão está: ")
@@ -27,16 +27,26 @@ class Televisao():
             print('Desligada!!!')
     
 
-    def trocar_canal(self, novo_canal):
+    def trocar_canal(self):
         if (self.status == True):
-            troca = self.canal = novo_canal
+            valor = int(input("Digite o canal desejado: "))
+            if (type(valor) == int):
+                self.canal = valor
+            else:
+                valor = int(input("Digite novamente o volume desejado: "))
+                self.canal = valor
             print(f"Canal trocado: {self.canal}")
         else:
             print(self.msg)
     
-    def troca_volume(self, novo_volume):
+    def troca_volume(self):
         if (self.status == True):
-            troca = self.volume = novo_volume
+            valor = int(input("Digite o volume desejado: "))
+            if (type(valor) == int):
+                self.volume = valor
+            else:
+                valor = int(input("Digite novamente o volume desejado: "))
+                self.volume = valor
             print(f"Volume trocado: {self.volume}")
         else:
             print(self.msg)
@@ -44,30 +54,55 @@ class Televisao():
     
     def aumenta_canal(self):
         if (self.status == True):
-            self.canal += 1
-            print(f"Canal mudado para: {self.canal}")
+            aumentar = input("Para aumentar o canal digite: Sim ou Não! ")
+            if (aumentar.lower() == "sim"):
+                self.canal += 1
+                print(f"Canal aumentado para: {self.canal}")
+            elif(aumentar.lower() == "sim"):
+                print(f"O canal não foi alterado: {self.canal}")
+            else: 
+                print("Essa função não existe!!!")
         else:
             print(self.msg)
         
     
     def diminui_canal(self):
         if (self.status == True):
-            self.canal -= 1
-            print(f"Canal mudado para: {self.canal}")
+            diminuir = input("Para diminuir o canal digite: Sim ou Não! ")
+            if (diminuir.lower() == "sim"):
+                self.canal -= 1
+                print(f"Canal diminuido para: {self.canal}")
+            elif(diminuir.lower() == "sim"):
+                print(f"O canal não foi alterado: {self.canal}")
+            else: 
+                print("Essa função não existe!!!")
         else:
             print(self.msg)
+
     
     def aumenta_volume(self):
         if (self.status == True):
-            self.volume += 1
-            print(f"Volume diminuído para: {self.volume}")
+            aumentar = input("Para aumentar o volume digite: Sim ou Não! ")
+            if (aumentar.lower() == "sim"):
+                self.volume += 1
+                print(f"Volume aumentado para: {self.volume}")
+            elif(aumentar.lower() == "sim"):
+                print(f"Volume não foi alterado: {self.volume}")
+            else: 
+                print("Essa função não existe!!!")
         else:
             print(self.msg)
     
     def diminui_volume(self):
         if (self.status == True):
-            self.volume -= 1
-            print(f"Volume diminuído para: {self.volume}")
+            diminuir = input("Para diminuir o volume digite: Sim ou Não! ")
+            if (diminuir.lower() == "sim"):
+                self.volume -= 1
+                print(f"Volume diminuído para: {self.volume}")
+            elif(diminuir.lower() == "sim"):
+                print(f"Volume não foi alterado: {self.volume}")
+            else: 
+                print("Essa função não existe!!!")
         else:
             print(self.msg)
 
@@ -75,3 +110,7 @@ tv = Televisao()
 tv.troca_status()
 tv.aumenta_canal()
 tv.aumenta_canal()
+tv.aumenta_canal()
+tv.diminui_canal()
+tv.trocar_canal()
+tv.troca_status()
