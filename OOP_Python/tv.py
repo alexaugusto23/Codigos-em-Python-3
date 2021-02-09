@@ -75,7 +75,7 @@ class Televisao():
             if (aumentar.lower() == "sim"):
                 self.canal += 1
                 print(f"Canal aumentado para: {self.canal}")
-            elif(aumentar.lower() == "sim"):
+            elif(aumentar.lower() == "não" or aumentar.lower() == "nao"):
                 print(f"O canal não foi alterado: {self.canal}")
             else: 
                 print("Essa função não existe!!!")
@@ -89,7 +89,7 @@ class Televisao():
             if (diminuir.lower() == "sim"):
                 self.canal -= 1
                 print(f"Canal diminuido para: {self.canal}")
-            elif(diminuir.lower() == "sim"):
+            elif(diminuir.lower() == "não" or diminuir.lower() == "nao"):
                 print(f"O canal não foi alterado: {self.canal}")
             else: 
                 print("Essa função não existe!!!")
@@ -103,7 +103,7 @@ class Televisao():
             if (aumentar.lower() == "sim"):
                 self.volume += 1
                 print(f"Volume aumentado para: {self.volume}")
-            elif(aumentar.lower() == "sim"):
+            elif(aumentar.lower() == "não" or aumentar.lower() == "nao"  ):
                 print(f"Volume não foi alterado: {self.volume}")
             else: 
                 print("Essa função não existe!!!")
@@ -116,7 +116,7 @@ class Televisao():
             if (diminuir.lower() == "sim"):
                 self.volume -= 1
                 print(f"Volume diminuído para: {self.volume}")
-            elif(diminuir.lower() == "sim"):
+            elif(diminuir.lower() == "não" or diminuir.lower() == "nao"):
                 print(f"Volume não foi alterado: {self.volume}")
             else: 
                 print("Essa função não existe!!!")
@@ -127,4 +127,6 @@ tv = Televisao()
 tv.troca_status()
 tv.trocar_canal()
 tv.diminui_canal()
+tv.aumenta_volume()
+tv.diminui_volume()
 
