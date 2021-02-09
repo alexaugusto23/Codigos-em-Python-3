@@ -35,6 +35,8 @@ class Televisao():
             except ValueError:
                 print("Atenção !!! Digite somente números!!!")
                 valor = int(input("Digite o canal desejado: "))
+            else:
+                pass
             finally:
                 if (type(valor) == int):
                     self.canal = valor
@@ -54,6 +56,8 @@ class Televisao():
             except ValueError:
                 print("Atenção !!! Digite somente números!!!")
                 valor = int(input("Digite o volume desejado: "))
+            else:
+                pass
             finally:
                 if (type(valor) == int):
                     self.volume = valor
