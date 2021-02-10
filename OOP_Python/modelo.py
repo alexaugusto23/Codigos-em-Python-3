@@ -20,29 +20,21 @@ class Programa:
     def dar_like(self):
         self.__likes += 1
         
-   
-
+ 
 class Filme(Programa):
-
     def __init__(self, nome, ano, duracao):
-        self.__nome = nome.title()
-        self.ano = ano
-        self.__likes = 0
+        super().__init__(nome, ano)
         self.duracao = duracao
                  
 class Serie(Programa):
-
     def __init__(self, nome, ano, temporadas):
-        self.__nome = nome.title()
-        self.ano = ano
-        self.__likes = 0
+        super().__init__(nome, ano)
         self.temporadas = temporadas
     
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
 atlanta = Serie('atlanta', 2018, 2)
 
-atlanta.nome = "teste"
 atlanta.dar_like()
 atlanta.dar_like()
 vingadores.dar_like()
