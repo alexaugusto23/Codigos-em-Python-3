@@ -2,9 +2,9 @@ class Programa:
     def __init__(self, nome, ano):
         self.__nome = nome.title()
         self.ano = ano
-        self.__likes = 0        
+        self.__likes = 0 #encapsulamento __likes        
 
-    @property
+    @property #decorador ou decorator
     def likes(self):
         return self.__likes
     
@@ -20,28 +20,28 @@ class Programa:
     def dar_like(self):
         self.__likes += 1
           
-    def __str__(self):
+    def __str__(self):#polimorfismo
         return f"{self.nome} - {self.ano} - {self.likes}"
 
         
  
-class Filme(Programa):
+class Filme(Programa):#herança
     def __init__(self, nome, ano, duracao):
         super().__init__(nome, ano)
         self.duracao = duracao
     
-    def __str__(self):
+    def __str__(self):#polimorfismo
         str = "minutos"
         lk = "like" if self.likes <= 1 else "likes"
         return f"{self.nome} - {self.ano} - {self.likes} {lk} - {self.duracao} {str}"
                  
-class Serie(Programa):
+class Serie(Programa):#herança
     def __init__(self, nome, ano, temporadas):
         super().__init__(nome, ano)
         self.temporadas = temporadas
     
     #dunder methods
-    def __str__(self):
+    def __str__(self):#polimorfismo
         str = "temporada" if self.temporadas <= 1 else "temporadas"
         lk = "like" if self.likes <= 1 else "likes"
         return f"{self.nome} - {self.ano} - {self.likes} {lk} - {self.temporadas} {str}"
@@ -58,7 +58,8 @@ class Playlist:
     #duck typing
     def __getitem__(self, item):
         return self._programas[item]
-
+    
+    #dunder methods
     def __len__(self):
         return len(self._programas)
     
