@@ -51,19 +51,17 @@ class Playlist:
         self.nome = nome.title()
         self._programas = programas
 
-    def __getitem__(self, item):
-        return self._programas[item]
-    
     @property
     def listagem(self):
         return self._programas
 
-    @property
-    def tamanho(self):
+    #duck typing
+    def __getitem__(self, item):
+        return self._programas[item]
+
+    def __len__(self):
         return len(self._programas)
     
-    
-
  
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
@@ -80,10 +78,20 @@ atlanta.dar_like()
 vingadores.dar_like()
 et.dar_like()
 
-print(f"\nTamanho playlist: {len(playlist_fim_de_semana.listagem)}")
+print(f"\nTamanho playlist: {len(playlist_fim_de_semana)}")
 print("\n")
 for programa in playlist_fim_de_semana:
     print(programa)
 print("\n")
 
 print(f"Tá ou não está? {et in playlist_fim_de_semana}\n")
+
+
+'''
+Python Data Model
+
+Inicialização: __init__
+Representação: __str__, __repr__
+Container, sequência: __contains__, __iter__, __len__, __getitem__
+Númericos: __add__, __sub__, __mul__, _mod__
+'''
